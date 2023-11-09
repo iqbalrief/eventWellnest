@@ -29,4 +29,4 @@
 -- password vendor: "vendors"
 -- password company: "company"
 
-![alt text](?raw=true)https://github.com/iqbalrief/eventWellnest/blob/0a2be96af3b0f5193a3837be9f2fec46223bce98/server/images/appsWellnest.png
+![alt text](https://github.com/iqbalrief/eventWellnest/blob/0a2be96af3b0f5193a3837be9f2fec46223bce98/server/images/appsWellnest.png)
