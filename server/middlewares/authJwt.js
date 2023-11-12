@@ -6,7 +6,8 @@ const {
 
 const verifyToken = async (req, res, next) => {
   try {
-    let token = req.headers['authorization'];
+    let token = req.headers['authorization'].split(' ')[1];;
+    console.log('Token:', token);
     if (!token) {
       return res.status(401).send({
         message: 'No tokens are provided.'

@@ -19,7 +19,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       status: {
-        type: Sequelize.ENUM("Pending", "Approved", "Rejected")
+        type: Sequelize.ENUM("Approved", "Rejected")
       },
       reason: {
         type: Sequelize.TEXT,

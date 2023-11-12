@@ -8,7 +8,6 @@ const companies = [...Array(5)].map(() => ({
 
   username: faker.person.fullName(),
   lastname: faker.person.lastName(),
-  type: "company",
   email: faker.internet.email(),
   password: bcrypt.hashSync("company", 10),
   companyName: faker.company.buzzPhrase(),

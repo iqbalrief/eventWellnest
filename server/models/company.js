@@ -32,10 +32,6 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
-      type: {
-        type: DataTypes.STRING,
-         allowNull: true,
-      },
       email: {
         type: DataTypes.STRING,
          allowNull: false,
@@ -66,7 +62,6 @@ module.exports = (sequelize, DataTypes) => {
       beforeCreate: async (company, options) => {
         if (!company.companyName && !company.type) {       
           company.companyName = faker.company.buzzPhrase();
-          company.type = "company"
         }
         const hashedPassword = await bcrypt.hash(company.password, 10);
         company.password = hashedPassword;

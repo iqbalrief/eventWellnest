@@ -12,9 +12,9 @@ const approve = [...Array(5)].map(() => ({
     min: 1,
     max: 5
   }),
-  status: faker.helpers.arrayElement(["Pending", "Approved", "Rejected"]),
-  confirmDate: null,
-  reason: faker.lorem.text(),
+  status: faker.helpers.arrayElement(["Approved", "Rejected"]),
+  confirmDate: new Date(),
+  reason: faker.lorem.text({min:3, max:5}),
   createdAt: new Date(),
   updatedAt: new Date(),
 }))

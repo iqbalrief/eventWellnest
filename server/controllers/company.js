@@ -62,6 +62,7 @@ const signIn = async (req, res) => {
     const token = jwt.sign({
         id: company.id,
         email: company.email
+
       },
       process.env.JWT_SECRETKEY, {
         expiresIn: '1h',
@@ -90,17 +91,19 @@ const getAllCompany = async (req, res) => {
         exclude: ["createdAt", "updatedAt"]
       },
     });
+  
     res.status(200).json({
       success: true,
       message: "Data Company Successfully",
       dataCompany: findAllCompany
     })
   } catch (error) {
-    return res.status(500).json({
-      success: false,
-      message: "Data Company Failed",
-      error
-    });
+    console.log(error);
+    // return res.status(500).json({
+    //   success: false,
+    //   message: "Data Company Failed",
+    //   error
+    // });
   }
 }
 

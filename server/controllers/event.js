@@ -129,6 +129,12 @@ const {
         attributes: {
           exclude: ["createdAt", "updatedAt"]
         },
+        include: [{
+          model: Vendor,
+          attributes: {
+            exclude: ['createdAt', 'updatedAt']
+          }
+        }, ],
       });
       res.status(200).json({
         success: true,
@@ -151,66 +157,9 @@ const {
       const findOneEvent = await Event.findByPk(id, {
         attributes: {
           exclude: ["createdAt", "updateAt"]
-        },
-      });
-  
-      if (!findOneEvent) {
-        return res.status(404).json({
-          succes: false,
-          message: "Data Event Not Found",
-        });
-      }
-  
-      return res.status(200).json({
-        success: true,
-        message: "Data Event Retrieved",
-        dataEvent: findOneEvent,
-      });
-    } catch (error) {
-      return res.status(400).json({
-        succes: false,
-        message: error,
-      });
-    }
-  };
-  
-  const dataAllEvent = async (req, res) => {
-    try {
-      const findAllEvent = await Event.findAll({
-        attributes: {
-          exclude: ["createdAt", "updatedAt"]
-        },
-        include: [{
-          model: Vendor,
-          attributes: {
-            exclude: ['createdAt', 'updatedAt']
-          }
-        }, ],
-  
-      });
-      res.status(200).json({
-        success: true,
-        message: "Data Event Successfully",
-        dataEvent: findAllEvent
-      })
-    } catch (error) {
-      return res.status(500).json({
-        success: false,
-        message: "Data Company Failed",
-        error
-      });
-    }
-  }
-  
-  
-  const dataEventById = async (req, res) => {
-    try {
-      const id = req.params.id;
-      const findOneEvent = await Event.findByPk(id, {
-        attributes: {
-          exclude: ["createdAt", "updateAt"]
-        },
-        include: [{
+        },  
+          include: [
+        {
           model: Vendor,
           attributes: {
             exclude: ['createdAt', 'updatedAt']
@@ -237,8 +186,7 @@ const {
       });
     }
   };
-  
-  
+    
   const deleteEvent = async (req, res) => {
     try {
         const {id} = req.params;
@@ -272,9 +220,7 @@ const {
   module.exports = {
     createEvent,
     getAllEvent,
-    dataAllEvent,
     getByIdEvent,
-    dataEventById,
     updateEvent,
     deleteEvent
   }

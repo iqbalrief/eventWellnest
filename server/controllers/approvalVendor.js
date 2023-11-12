@@ -1,5 +1,4 @@
-const bcrypt = require("bcrypt")
-const jwt = require("jsonwebtoken")
+
 
 const {
   Vendor,
@@ -168,7 +167,7 @@ const updateByVendor = async (req, res) => {
 
 const getAllByVendor = async (req, res) => {
   try {
-    const findAllEvent = await approvalVendor.findAll({
+    const findAllApprove = await approvalVendor.findAll({
       attributes: {
         exclude: ["createdAt", "updatedAt"]
       },
@@ -189,7 +188,7 @@ const getAllByVendor = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Data Approve Successfully",
-      dataEvent: findAllEvent
+      dataApproval: findAllApprove
     })
   } catch (error) {
     return res.status(500).json({

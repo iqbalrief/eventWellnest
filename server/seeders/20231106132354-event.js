@@ -18,7 +18,7 @@ const events = [...Array(5)].map((event) => ({
   proposeDate3: new Date(),
   location: faker.location.state(),
   status: faker.helpers.arrayElement(["Pending", "Approved", "Rejected"]),
-  remark: faker.lorem.text(),
+  remark: faker.lorem.text({min: 3, max: 5}),
   createdAt: new Date(),
   updatedAt: new Date()
 }))

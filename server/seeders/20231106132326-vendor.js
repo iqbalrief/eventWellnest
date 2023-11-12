@@ -10,7 +10,6 @@ const vendors = [...Array(5)].map(() => ({
 
   username: faker.person.fullName(),
   lastname: faker.person.lastName(),
-  type: "vendors",
   email: faker.internet.email(),
   password: bcrypt.hashSync("vendors", 10),
   vendorName: faker.company.buzzPhrase(),

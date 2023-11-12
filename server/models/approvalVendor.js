@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   approvalVendor.init({
     vendor_id: DataTypes.INTEGER,
     event_id: DataTypes.INTEGER,
-    status: DataTypes.ENUM("Pending", "Approved", "Rejected"),
+    status: DataTypes.ENUM("Approved", "Rejected"),
     reason: DataTypes.TEXT,
     confirmDate: {
       type: DataTypes.DATE,

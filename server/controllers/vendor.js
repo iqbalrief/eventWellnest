@@ -66,6 +66,7 @@ const signIn = async (req, res) => {
       dataUser: {
         id: vendor.id,
         username: vendor.username,
+        type: vendor.type,
 
       },
     });
@@ -88,7 +89,7 @@ const getAllVendor = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Data Vendor Successfully",
-      dataEvent: findAllVendor
+      dataVendor: findAllVendor
     })
   } catch (error) {
     return res.status(500).json({
